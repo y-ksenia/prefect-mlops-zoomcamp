@@ -14,7 +14,7 @@ from prefect import flow, task
 @task(retries=3, retry_delay_seconds=2)
 def read_data(filename: str) -> pd.DataFrame:
     """Read data into DataFrame"""
-    df = pd.read_parquet(filename)
+    df = pd.read_parquet(filename.strip())
 
     df.lpep_dropoff_datetime = pd.to_datetime(df.lpep_dropoff_datetime)
     df.lpep_pickup_datetime = pd.to_datetime(df.lpep_pickup_datetime)
