@@ -1,0 +1,5 @@
+deployments:
+- name: taxi1
+  entrypoint: 3.4/orchestrate.py:main_flow
+  work_pool: 
+    name: mlops_pool
